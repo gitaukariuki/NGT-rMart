@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Product 1",
+    "price": 29.99,
+    "description": "This is the description of Product 1.",
+    "category": "electronics",
+    "image": "/assets/images/electronics.jpg",
+    "rating": { "rate": 4.5, "count": 120 }
+  },
+  {
+    "id": 2,
+    "title": "Product 2",
+    "price": 19.99,
+    "description": "This is the description of Product 2.",
+    "category": "clothing",
+    "image": "public/assets/images/product2.jpg",
+    "rating": { "rate": 4.0, "count": 80 }
+  },
+  {
+    "id": 3,
+    "title": "Product 3",
+    "price": 19.99,
+    "description": "This is the description of Product 2.",
+    "category": "clothing",
+    "image": "public/assets/images/product2.jpg",
+    "rating": { "rate": 4.0, "count": 80 }
+  },
+  {
+    "id": 4,
+    "title": "Product 4",
+    "price": 19.99,
+    "description": "This is the description of Product 2.",
+    "category": "clothing",
+    "image": "public/assets/images/product2.jpg",
+    "rating": { "rate": 4.0, "count": 80 }
+  }
+]
