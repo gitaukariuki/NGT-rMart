@@ -13,13 +13,14 @@ const Products = () => {
             {
                 id: 1,
                 title: 'Product 1',
-                price: '1500',
+                price: '2950.99',
                 image: '/assets/images/accessories.jpg'
             },
             {
                 id: 2,
                 title: 'Product 2',
-                price: '2000',
+                price: '3599.99',
+                category: 'electronics',
                 image: '/assets/images/electronics.jpg'
             },
             {
@@ -34,6 +35,76 @@ const Products = () => {
                 price: '1500',
                 image: '/assets/images/clothing.jpg'
             },
+            {
+                id: 5,
+                title: 'Product 5',
+                price: '1500',
+                category: 'electronics',
+                image: '/assets/images/imprimante1.png'
+            },
+            {
+                id: 6,
+                title: 'Product 6',
+                price: '1500',
+                category: 'electronics',
+                image: '/assets/images/imprimante2.png'
+            },
+            {
+                id: 7,
+                title: 'Product 7',
+                price: '1500',
+                category: 'electronics',
+                image: '/assets/images/imprimante3.png'
+            },
+            {
+                id: 8,
+                title: 'Product 8',
+                price: '1500',
+                category: 'electronics',
+                image: '/assets/images/imprimante4.png'
+            },
+            {
+                id: 9,
+                title: 'Product 9',
+                price: '1500',
+                category: 'electronics',
+                image: '/assets/images/imprimante5.png'
+            },
+            {
+                id: 10,
+                title: 'Product 10',
+                price: '1500',
+                category: 'electronics',
+                image: '/assets/images/imprimante6.png'
+            },
+            {
+                id: 11,
+                title: 'Product 11',
+                price: '1500',
+                category: 'electronics',
+                image: '/assets/images/imprimante7.png'
+            },
+            {
+                id: 12,
+                title: 'Product 12',
+                price: '1500',
+                category: 'electronics',
+                image: '/assets/images/imprimante8.png'
+            },
+            {
+                id: 13,
+                title: 'Product 13',
+                price: '1500',
+                category: 'electronics',
+                image: '/assets/images/imprimante9.png'
+            },
+            {
+                id: 14,
+                title: 'Product 14',
+                price: '1500',
+                category: 'electronics',
+                image: '/assets/images/bac1.png'
+            },
             // Add more products as needed
         ];
 
@@ -47,17 +118,17 @@ const Products = () => {
 
     const Loading = () => (
         <>
-            <div className="col-md-3"><Skeleton height={350}></Skeleton></div>
-            <div className="col-md-3"><Skeleton height={350}></Skeleton></div>
-            <div className="col-md-3"><Skeleton height={350}></Skeleton></div>
-            <div className="col-md-3"><Skeleton height={350}></Skeleton></div>
+            <div className="col-md-3"><Skeleton height={350}/></div>
+            <div className="col-md-3"><Skeleton height={350}/></div>
+            <div className="col-md-3"><Skeleton height={350}/></div>
+            <div className="col-md-3"><Skeleton height={350}/></div>
         </>
     );
 
     const filterProduct = (cat) => {
         const updatedList = data.filter((x) => x.category === cat);
         setFilter(updatedList);
-    };
+    }
 
     const ShowProducts = () => {
         return (
