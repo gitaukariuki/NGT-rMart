@@ -5,7 +5,9 @@ import { increaseQuantity, decreaseQuantity, removeFromCart } from '../redux/red
 const Cart = () => {  
     const dispatch = useDispatch();  
     const cartItems = useSelector((state) => {  
-        console.log("State:", state);  // Log the Redux state  
+        console.log("Full State:", state);  // Log the Redux state  
+        console.log("Cart State:", state.cart);  // Log the Redux state  
+        console.log("Cart Items", state.cart.items);
         return state.cart.items || [];   // Use empty array if items is undefined  
     });  
 
