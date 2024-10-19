@@ -1,65 +1,69 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
+import React, { useState } from "react";  
+import { NavLink } from "react-router-dom";  
+import { useSelector } from "react-redux";  
+import CartButton from "./CartButton"; // Assuming this component handles additional cart functionalities  
 
 const Navbar = () => {  
-    const state = useSelector((state)=> state.handleCart)
+    const state = useSelector((state) => state.handleCart);  
+    const [isMenuOpen, setIsMenuOpen] = useState(false);  
+
+    const toggleMenu = () => {  
+        setIsMenuOpen(!isMenuOpen);  
+    };  
+
     return (  
-        <div>  
-            <nav className="navbar navbar-expand-lg bg-white navbar-light py-3 shadow-sm">  
-                <div className="container">  
-                    <NavLink className="navbar-brand fw-bold fs-2" to="#">  
-                        NGT eMart  
-                    </NavLink>  
-                    <button  
-                        className="navbar-toggler"  
-                        type="button"  
-                        data-bs-toggle="collapse"  
-                        data-bs-target="#navbarSupportedContent"  
-                        aria-controls="navbarSupportedContent"  
-                        aria-expanded="false"  
-                        aria-label="Toggle navigation"  
-                    >  
-                        <span className="navbar-toggler-icon"></span>  
-                    </button>  
-                    <div className="collapse navbar-collapse" id="navbarSupportedContent">  
-                        <ul className="navbar-nav mx-auto mb-2 mb-lg-0">  
-                            <li className="nav-item">  
-                                <NavLink className="nav-link active" aria-current="page" to="/">  
-                                    Home  
-                                </NavLink>  
-                            </li>  
-                            <li className="nav-item">  
-                                <NavLink className="nav-link" to="/products">  
-                                    Products  
-                                </NavLink>  
-                            </li>  
-                            <li className="nav-item">  
-                                <NavLink className="nav-link" to="/about">  
-                                    About  
-                                </NavLink>  
-                            </li>  
-                            <li className="nav-item">  
-                                <NavLink className="nav-link" to="/contacts">  
-                                    Contacts {/* Fixed typo */}  
-                                </NavLink>  
-                            </li>  
-                        </ul>  
-                        <div className="buttons">  
-                            <NavLink to="/login" className="btn btn-outline-dark">  
-                                <i className="fNavLinkfa-sign-in me-1"></i>Login  
+        <nav className="navbar navbar-expand-lg bg-white navbar-light py-3 shadow-sm">  
+            <div className="container">  
+                <NavLink className="navbar-brand fw-bold fs-2" to="/">  
+                    NGT eMart  
+                </NavLink>  
+                <button  
+                    className={`navbar-toggler ${isMenuOpen ? '' : 'collapsed'}`}  
+                    type="button"  
+                    onClick={toggleMenu}  
+                    aria-controls="navbarSupportedContent"  
+                    aria-expanded={isMenuOpen}  
+                    aria-label="Toggle navigation"  
+                >  
+                    <span className="navbar-toggler-icon"></span>  
+                </button>  
+                <div className={`collapse navbar-collapse ${isMenuOpen ? 'show' : ''}`} id="navbarSupportedContent">  
+                    <ul className="navbar-nav mx-auto mb-2 mb-lg-0">  
+                        <li className="nav-item">  
+                            <NavLink className="nav-link" exact to="/">  
+                                Home  
                             </NavLink>  
-                            <NavLink to="/register" className="btn btn-outline-dark ms-2">  
-                                <i className="fNavLinkfa-user-plus me-1"></i>Register  
+                        </li>  
+                        <li className="nav-item">  
+                            <NavLink className="nav-link" to="/products">  
+                                Products  
                             </NavLink>  
-                            <NavLink to="/cart" className="btn btn-outline-dark ms-2">  
-                                <i className="fNavLinkfa-shopping-cart me-1"></i>Cart ({state.length})  
+                        </li>  
+                        <li className="nav-item">  
+                            <NavLink className="nav-link" to="/about">  
+                                About  
                             </NavLink>  
-                        </div>  
+                        </li>  
+                        <li className="nav-item">  
+                            <NavLink className="nav-link" to="/contacts">  
+                                Contacts  
+                            </NavLink>  
+                        </li>  
+                    </ul>  
+                    <div className="buttons d-flex align-items-center">  
+                        <NavLink to="/login" className="btn btn-outline-dark me-2">  
+                            <i className="fa fa-sign-in me-1"></i> Login  
+                        </NavLink>  
+                        <NavLink to="/register" className="btn btn-outline-dark me-2">  
+                            <i className="fa fa-user-plus me-1"></i> Register  
+                        </NavLink>  
+                        <NavLink to="/cart" className="btn btn-outline-dark">  
+                            <i className="fa fa-shopping-cart me-1"></i> Cart ({(state && state.length) || 0})  
+                        </NavLink>  
                     </div>  
                 </div>  
-            </nav>  
-        </div>  
+            </div>  
+        </nav>  
     );  
 }  
 

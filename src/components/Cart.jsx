@@ -1,33 +1,32 @@
-import React from "react";  
-import { useSelector, useDispatch } from "react-redux";  
-import { increaseQuantity, decreaseQuantity, removeFromCart } from "../redux/reducer/cartSlice"; // Adjust the import based on your file structure  
+import React from 'react';  
+import { useSelector, useDispatch } from 'react-redux';  
+import { increaseQuantity, decreaseQuantity, removeFromCart } from '../redux/reducer/cartSlice';  
 
 const Cart = () => {  
     const dispatch = useDispatch();  
-    const cartItems = useSelector((state) => state.cart.items);  
+    const cartItems = useSelector((state) => {  
+        console.log("State:", state);  // Log the Redux state  
+        return state.cart.items || [];   // Use empty array if items is undefined  
+    });  
 
-    // Function to handle quantity change  
-    const handleButton = (product, action) => {  
+    const handleButton = (productId, action) => {  
         if (action === "increase") {  
-            dispatch(increaseQuantity(product.id));  
+            dispatch(increaseQuantity(productId));  
         } else if (action === "decrease") {  
-            if (product.qty > 1) {  
-                dispatch(decreaseQuantity(product.id));  
-            } else {  
-                dispatch(removeFromCart(product.id)); // Remove item if quantity is 1 and decrease is pressed  
-            }  
+            dispatch(decreaseQuantity(productId));  
         }  
     };  
 
-    // Calculate total price  
     const totalPrice = cartItems.reduce((total, product) => total + product.qty * product.price, 0);  
 
     return (  
         <div className="cart-container">  
             {cartItems.length === 0 ? (  
-                <h2>Your cart is empty</h2>  
+                <h2>Your cart feels lonely</h2>  
             ) : (  
                 <>  
+                    <hr />  
+                    <h2>Your Cart</h2>  
                     {cartItems.map((product) => (  
                         <div className="row" key={product.id}>  
                             <div className="col-md-4">  
@@ -38,23 +37,34 @@ const Cart = () => {
                                 <p className="lead fw-bold">  
                                     {product.qty} X Ksh {product.price} = Ksh {product.qty * product.price}  
                                 </p>  
-                                <button   
-                                    type="button"   
-                                    className="btn btn-outline-dark"   
-                                    onClick={() => handleButton(product, "decrease")}  
-                                    aria-label={`Decrease quantity of ${product.title}`}>  
+                                <button  
+                                    type="button"  
+                                    className="btn btn-outline-dark"  
+                                    onClick={() => handleButton(product.id, "decrease")}  
+                                    aria-label={`Decrease quantity of ${product.title}`}  
+                                >  
                                     <i className="fa fa-minus"></i>  
-                                </button>  
-                                <button   
-                                    type="button"   
-                                    className="btn btn-outline-dark"   
-                                    onClick={() => handleButton(product, "increase")}  
-                                    aria-label={`Increase quantity of ${product.title}`}>  
+                                </button> &nbsp;  
+                                <button  
+                                    type="button"  
+                                    className="btn btn-outline-dark"  
+                                    onClick={() => handleButton(product.id, "increase")}  
+                                    aria-label={`Increase quantity of ${product.title}`}  
+                                >  
                                     <i className="fa fa-plus"></i>  
+                                </button> &nbsp;  
+                                <button  
+                                    type="button"  
+                                    className="btn btn-outline-danger"  
+                                    onClick={() => dispatch(removeFromCart(product.id))}  
+                                    aria-label={`Remove ${product.title} from cart`}  
+                                >  
+                                    Remove  
                                 </button>  
                             </div>  
                         </div>  
                     ))}  
+                    <hr />  
                     <h3>Total: Ksh {totalPrice}</h3>  
                 </>  
             )}  

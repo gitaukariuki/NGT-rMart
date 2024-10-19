@@ -1,17 +1,12 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React from 'react';
 
 const About = () => {
-    return (
-        <div>
-            <div className="about">
-                <h1>About us</h1>
-                <hr />
-                <h2>NGT eMart</h2>
-                <p>This is the <span>About us</span> page for NGT eMart e-commerce store.</p>
-            </div>
-        </div>
-    )
-}
+  return (
+    <div className="about-us">
+      <h2>About Us</h2>
+      <p>Welcome to NGT eMart! We are a dedicated team committed to providing the best online shopping experience.</p>
+    </div>
+  );
+};
 
 export default About;
