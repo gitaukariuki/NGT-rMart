@@ -1,29 +1,29 @@
 [
   {
     "id": 1,
-    "title": "NUNIX Hair Dryer",
-    "price": 2950.99,
+    "title": "CookWare Set",
+    "price": 1000,
     "description": "This is the description of Product 1.",
-    "category": "accessories",
-    "image": "/assets/images/accessories.jpg",
+    "category": "kitchenware",
+    "image": "/assets/images/kw.jpg",
     "rating": { "rate": 4.5, "count": 120 }
   },
   {
     "id": 2,
     "title": "Product 2",
-    "price": 3599.99,
+    "price": 1000.00,
     "description": "This is the description of Product 2.",
-    "category": "electronics",
-    "image": "/assets/images/electronics.jpg",
+    "category": "kitchenware",
+    "image": "/assets/images/kw1.jpg",
     "rating": { "rate": 4.0, "count": 80 }
   },
   {
     "id": 3,
-    "title": "Product 3",
+    "title": "SOKANY BISCUIT MAKER",
     "price": 1500,
     "description": "This is the description of Product 2.",
-    "category": "households",
-    "image": "/assets/images/households.jpg",
+    "category": "kitchenware",
+    "image": "/assets/images/kw2.jpg",
     "rating": { "rate": 4.0, "count": 80 }
   },
   {
@@ -31,8 +31,8 @@
     "title": "Product 4",
     "price": 1500,
     "description": "This is the description of Product 2.",
-    "category": "clothing",
-    "image": "/assets/images/clothing.jpg",
+    "category": "kitchenware",
+    "image": "/assets/images/kw3.jpg",
     "rating": { "rate": 4.0, "count": 80 }
   },
   {
@@ -40,8 +40,8 @@
     "title": "Product 5",
     "price": 1500,
     "description": "This is the description of Product 2.",
-    "category": "electronics",
-    "image": "/assets/images/imprimante1.png",
+    "category": "kitchenware",
+    "image": "/assets/images/kw4.jpg",
     "rating": { "rate": 4.0, "count": 80 }
   },
   {
@@ -49,8 +49,8 @@
     "title": "Product 6",
     "price": 1500,
     "description": "This is the description of Product 2.",
-    "category": "electronics",
-    "image": "/assets/images/imprimante2.png",
+    "category": "kitchenware",
+    "image": "/assets/images/kw5.jpg",
     "rating": { "rate": 4.0, "count": 80 }
   },
   {
@@ -58,8 +58,8 @@
     "title": "Product 7",
     "price": 1500,
     "description": "This is the description of Product 2.",
-    "category": "electronics",
-    "image": "/assets/images/imprimante3.png",
+    "category": "kitchenware",
+    "image": "/assets/images/kw6.jpg",
     "rating": { "rate": 4.0, "count": 80 }
   },
   {
@@ -67,8 +67,8 @@
     "title": "Product 8",
     "price": 1500,
     "description": "This is the description of Product 2.",
-    "category": "electronics",
-    "image": "/assets/images/imprimante4.png",
+    "category": "kitchenware",
+    "image": "/assets/images/kw7.jpg",
     "rating": { "rate": 4.0, "count": 80 }
   },
   {
@@ -76,8 +76,8 @@
     "title": "Product 9",
     "price": 1500,
     "description": "This is the description of Product 2.",
-    "category": "electronics",
-    "image": "/assets/images/imprimante5.png",
+    "category": "kitchenware",
+    "image": "/assets/images/kw8.jpg",
     "rating": { "rate": 4.0, "count": 80 }
   },
   {
@@ -85,8 +85,8 @@
     "title": "Product 10",
     "price": 1500,
     "description": "This is the description of Product 2.",
-    "category": "electronics",
-    "image": "/assets/images/imprimante6.png",
+    "category": "kitchenware",
+    "image": "/assets/images/kw9.jpg",
     "rating": { "rate": 4.0, "count": 80 }
   },
   {
@@ -94,8 +94,8 @@
     "title": "Product 11",
     "price": 1500,
     "description": "This is the description of Product 2.",
-    "category": "electronics",
-    "image": "/assets/images/imprimante7.png",
+    "category": "kitchenware",
+    "image": "/assets/images/kw10.jpg",
     "rating": { "rate": 4.0, "count": 80 }
   },
   {
@@ -103,8 +103,8 @@
     "title": "Product 12",
     "price": 1500,
     "description": "This is the description of Product 2.",
-    "category": "electronics",
-    "image": "/assets/images/imprimante8.png",
+    "category": "kitchenware",
+    "image": "/assets/images/kw11.jpg",
     "rating": { "rate": 4.0, "count": 80 }
   },
   {
@@ -112,8 +112,8 @@
     "title": "Product 13",
     "price": 1500,
     "description": "This is the description of Product 2.",
-    "category": "electronics",
-    "image": "/assets/images/imprimante9.png",
+    "category": "kitchenware",
+    "image": "/assets/images/kw12.jpg",
     "rating": { "rate": 4.0, "count": 80 }
   },
   {
@@ -121,8 +121,8 @@
     "title": "Product 14",
     "price": 1500,
     "description": "This is the description of Product 2.",
-    "category": "electronics",
-    "image": "/assets/images/bac1.png",
+    "category": "kitchenware",
+    "image": "/assets/images/kw13.jpg",
     "rating": { "rate": 4.0, "count": 80 }
   },
   {
@@ -130,8 +130,8 @@
     "title": "Product 15",
     "price": 1500,
     "description": "This is the description of Product 2.",
-    "category": "electronics",
-    "image": "/assets/images/e1.jpg",
+    "category": "kitchenware",
+    "image": "/assets/images/kw14.jpg",
     "rating": { "rate": 4.0, "count": 80 }
   },  
   {
@@ -139,8 +139,8 @@
     "title": "Product 16",
     "price": 1500,
     "description": "This is the description of Product 2.",
-    "category": "clothing",
-    "image": "/assets/images/f145.jpg",
+    "category": "kitchenware",
+    "image": "/assets/images/kw15.jpg",
     "rating": { "rate": 4.0, "count": 80 }
   },  
   {
@@ -148,8 +148,8 @@
     "title": "Product 17",
     "price": 1500,
     "description": "This is the description of Product 2.",
-    "category": "clothing",
-    "image": "/assets/images/f144.jpg",
+    "category": "kitchenware",
+    "image": "/assets/images/kw16.jpg",
     "rating": { "rate": 4.0, "count": 80 }
   },  
   {
@@ -157,8 +157,8 @@
     "title": "Product 18",
     "price": 1500,
     "description": "This is the description of Product 2.",
-    "category": "electronics",
-    "image": "/assets/images/f143.jpg",
+    "category": "kitchenware",
+    "image": "/assets/images/kw17.jpg",
     "rating": { "rate": 4.0, "count": 80 }
   },
   {
@@ -166,8 +166,8 @@
     "title": "Product 19",
     "price": 1500,
     "description": "This is the description of Product 2.",
-    "category": "clothing",
-    "image": "/assets/images/f142.jpg",
+    "category": "kitchenware",
+    "image": "/assets/images/kw18.jpg",
     "rating": { "rate": 4.0, "count": 80 }
   },
   {
@@ -175,8 +175,8 @@
     "title": "Product 20",
     "price": 1500,
     "description": "This is the description of Product 2.",
-    "category": "clothing",
-    "image": "/assets/images/f160.jpg",
+    "category": "kitchenware",
+    "image": "/assets/images/kw19.jpg",
     "rating": { "rate": 4.0, "count": 80 }
   },
   {
@@ -184,8 +184,8 @@
     "title": "Product 21",
     "price": 1500,
     "description": "This is the description of Product 2.",
-    "category": "clothing",
-    "image": "/assets/images/f141.jpg",
+    "category": "kitchenware",
+    "image": "/assets/images/kw20.jpg",
     "rating": { "rate": 4.0, "count": 80 }
   },
   {
@@ -193,8 +193,8 @@
     "title": "Product 22",
     "price": 1500,
     "description": "This is the description of Product 2.",
-    "category": "clothing",
-    "image": "/assets/images/f140.jpg",
+    "category": "kitchenware",
+    "image": "/assets/images/kw21.jpg",
     "rating": { "rate": 4.0, "count": 80 }
   },
   {
@@ -202,8 +202,8 @@
     "title": "Product 23",
     "price": 1500,
     "description": "This is the description of Product 2.",
-    "category": "clothing",
-    "image": "/assets/images/s139.jpg",
+    "category": "kitchenware",
+    "image": "/assets/images/kw22.jpg",
     "rating": { "rate": 4.0, "count": 80 }
   },
   {
@@ -211,8 +211,8 @@
     "title": "Product 24",
     "price": 1500,
     "description": "This is the description of Product 2.",
-    "category": "clothing",
-    "image": "/assets/images/f138.jpg",
+    "category": "kitchenware",
+    "image": "/assets/images/kw23.jpg",
     "rating": { "rate": 4.0, "count": 80 }
   },
   {
@@ -220,8 +220,8 @@
     "title": "Product 25",
     "price": 1500,
     "description": "This is the description of Product 2.",
-    "category": "clothing",
-    "image": "/assets/images/f146.jpg",
+    "category": "kitchenware",
+    "image": "/assets/images/kw24.jpg",
     "rating": { "rate": 4.0, "count": 80 }
   },  
   {
@@ -229,8 +229,8 @@
     "title": "Product 26",
     "price": 1500,
     "description": "This is the description of Product 2.",
-    "category": "clothing",
-    "image": "/assets/images/f147.jpg",
+    "category": "kitchenware",
+    "image": "/assets/images/kw25.jpg",
     "rating": { "rate": 4.0, "count": 80 }
   },  
   {
@@ -238,8 +238,8 @@
     "title": "Product 27",
     "price": 1500,
     "description": "This is the description of Product 2.",
-    "category": "clothing",
-    "image": "/assets/images/f148.jpg",
+    "category": "kitchenware",
+    "image": "/assets/images/kw26.jpg",
     "rating": { "rate": 4.0, "count": 80 }
   },  
   {
@@ -247,8 +247,8 @@
     "title": "Product 28",
     "price": 1500,
     "description": "This is the description of Product 2.",
-    "category": "clothing",
-    "image": "/assets/images/f104.jpg",
+    "category": "kitchenware",
+    "image": "/assets/images/kw27.jpg",
     "rating": { "rate": 4.0, "count": 80 }
   },  
   {
@@ -256,8 +256,8 @@
     "title": "Product 29",
     "price": 1500,
     "description": "This is the description of Product 2.",
-    "category": "clothing",
-    "image": "/assets/images/f102.jpg",
+    "category": "kitchenware",
+    "image": "/assets/images/kw28.jpg",
     "rating": { "rate": 4.0, "count": 80 }
   },  
   {
@@ -265,8 +265,8 @@
     "title": "Product 30",
     "price": 1500,
     "description": "This is the description of Product 2.",
-    "category": "clothing",
-    "image": "/assets/images/f151.jpg",
+    "category": "kitchenware",
+    "image": "/assets/images/kw29.jpg",
     "rating": { "rate": 4.0, "count": 80 }
   },  
   {
@@ -274,8 +274,8 @@
     "title": "Product 31",
     "price": 1500,
     "description": "This is the description of Product 2.",
-    "category": "clothing",
-    "image": "/assets/images/f114.jpg",
+    "category": "kitchenware",
+    "image": "/assets/images/kw30.jpg",
     "rating": { "rate": 4.0, "count": 80 }
   },  
   {
@@ -283,8 +283,8 @@
     "title": "Product 32",
     "price": 1500,
     "description": "This is the description of Product 2.",
-    "category": "clothing",
-    "image": "/assets/images/f86.jpg",
+    "category": "kitchenware",
+    "image": "/assets/images/kw31.jpg",
     "rating": { "rate": 4.0, "count": 80 }
   },  
   {
@@ -292,8 +292,8 @@
     "title": "Product 33",
     "price": 1500,
     "description": "This is the description of Product 2.",
-    "category": "clothing",
-    "image": "/assets/images/f59.jpg",
+    "category": "kitchenware",
+    "image": "/assets/images/kw32.jpg",
     "rating": { "rate": 4.0, "count": 80 }
   },  
   {
@@ -301,8 +301,8 @@
     "title": "Product 34",
     "price": 1500,
     "description": "This is the description of Product 2.",
-    "category": "clothing",
-    "image": "/assets/images/f61.jpg",
+    "category": "kitchenware",
+    "image": "/assets/images/kw33.jpg",
     "rating": { "rate": 4.0, "count": 80 }
   }
 ]
