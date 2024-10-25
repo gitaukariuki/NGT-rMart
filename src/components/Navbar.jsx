@@ -1,10 +1,11 @@
 import React, { useState } from "react";  
 import { NavLink } from "react-router-dom";  
 import { useSelector } from "react-redux";  
-import CartButton from "./CartButton"; // Assuming this component handles additional cart functionalities  
+import CartButton from "./CartButton";
 
 const Navbar = () => {  
-    const state = useSelector((state) => state.handleCart);  
+    const cartItems = useSelector((state) => state.cart.items); // Adjust this line to select cart items  
+    const totalItemsInCart = cartItems.reduce((total, item) => total + item.qty, 0); // Calculate total quantity  
     const [isMenuOpen, setIsMenuOpen] = useState(false);  
 
     const toggleMenu = () => {  
@@ -58,7 +59,7 @@ const Navbar = () => {
                             <i className="fa fa-user-plus me-1"></i> Register  
                         </NavLink>  
                         <NavLink to="/cart" className="btn btn-outline-dark">  
-                            <i className="fa fa-shopping-cart me-1"></i> Cart ({(state && state.length) || 0})  
+                            <i className="fa fa-shopping-cart me-1"></i> Cart ({totalItemsInCart})  
                         </NavLink>  
                     </div>  
                 </div>  

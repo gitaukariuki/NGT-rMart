@@ -12,241 +12,241 @@ const Products = () => {
         const mockData = [
             {
                 id: 1,
-                title: 'Product 1',
-                price: '2950.99',
-                category: 'accessories',
-                image: '/assets/images/accessories.jpg'
+                title: '10pc Cookware',
+                price: '1500',
+                category: 'kitchenware',
+                image: '/assets/images/kw.jpg'
             },
             {
                 id: 2,
                 title: 'Product 2',
-                price: '3599.99',
-                category: 'electronics',
-                image: '/assets/images/electronics.jpg'
+                price: '1000',
+                category: 'kitchenware',
+                image: '/assets/images/kw1.jpg'
             },
             {
                 id: 3,
-                title: 'Product 3',
+                title: 'SOKANY Biscuit Machine',
                 price: '1500',
-                category: 'households',
-                image: '/assets/images/households.jpg'
+                category: 'kitchenware',
+                image: '/assets/images/kw2.jpg'
             },
             {
                 id: 4,
                 title: 'Product 4',
                 price: '1500',
-                category: 'clothing',
-                image: '/assets/images/clothing.jpg'
+                category: 'kitchenware',
+                image: '/assets/images/kw3.jpg'
             },
             {
                 id: 5,
                 title: 'Product 5',
                 price: '1500',
-                category: 'electronics',
-                image: '/assets/images/imprimante1.png'
+                category: 'kitchenware',
+                image: '/assets/images/kw4.jpg'
             },
             {
                 id: 6,
                 title: 'Product 6',
                 price: '1500',
-                category: 'electronics',
-                image: '/assets/images/imprimante2.png'
+                category: 'kitchenware',
+                image: '/assets/images/kw5.jpg'
             },
             {
                 id: 7,
                 title: 'Product 7',
                 price: '1500',
-                category: 'electronics',
-                image: '/assets/images/imprimante3.png'
+                category: 'kitchenware',
+                image: '/assets/images/kw6.jpg'
             },
             {
                 id: 8,
                 title: 'Product 8',
                 price: '1500',
-                category: 'electronics',
-                image: '/assets/images/imprimante4.png'
+                category: 'kitchenware',
+                image: '/assets/images/kw7.jpg'
             },
             {
                 id: 9,
                 title: 'Product 9',
                 price: '1500',
-                category: 'electronics',
-                image: '/assets/images/imprimante5.png'
+                category: 'kitchenware',
+                image: '/assets/images/kw8.jpg'
             },
             {
                 id: 10,
                 title: 'Product 10',
                 price: '1500',
-                category: 'electronics',
-                image: '/assets/images/imprimante6.png'
+                category: 'kitchenware',
+                image: '/assets/images/kw9.jpg'
             },
             {
                 id: 11,
                 title: 'Product 11',
                 price: '1500',
-                category: 'electronics',
-                image: '/assets/images/imprimante7.png'
+                category: 'kitchenware',
+                image: '/assets/images/kw10.jpg'
             },
             {
                 id: 12,
                 title: 'Product 12',
                 price: '1500',
-                category: 'electronics',
-                image: '/assets/images/imprimante8.png'
+                category: 'kitchenware',
+                image: '/assets/images/kw11.jpg'
             },
             {
                 id: 13,
                 title: 'Product 13',
                 price: '1500',
-                category: 'electronics',
-                image: '/assets/images/imprimante9.png'
+                category: 'kitchenware',
+                image: '/assets/images/kw12.jpg'
             },
             {
                 id: 14,
                 title: 'Product 14',
                 price: '1500',
-                category: 'electronics',
-                image: '/assets/images/bac1.png'
+                category: 'kitchenware',
+                image: '/assets/images/kw13.jpg'
             },
             {
                 id: 15,
                 title: 'Product 15',
                 price: '1500',
-                category: 'electronics',
-                image: '/assets/images/e1.jpg'
+                category: 'kitchenware',
+                image: '/assets/images/kw14.jpg'
             }, 
             {
                 id: 16,
                 title: 'Product 16',
                 price: '1500',
-                category: 'men\'s clothing',
-                image: '/assets/images/f145.jpg'
+                category: 'kitchenware',
+                image: '/assets/images/kw15.jpg'
             }, 
             {
                 id: 17,
                 title: 'Product 17',
                 price: '1500',
-                category: 'men\'s clothing',
-                image: '/assets/images/f144.jpg'
+                category: 'kitchenware',
+                image: '/assets/images/kw16.jpg'
             }, 
             {
                 id: 18,
                 title: 'Product 18',
                 price: '1500',
-                category: 'men\'s clothing',
-                image: '/assets/images/f143.jpg'
+                category: 'kitchenware',
+                image: '/assets/images/kw17.jpg'
             }, 
             {
                 id: 19,
                 title: 'Product 19',
                 price: '1500',
-                category: 'men\'s clothing',
-                image: '/assets/images/f142.jpg'
+                category: 'kitchenware',
+                image: '/assets/images/kw18.jpg'
             }, 
             {
                 id: 20,
                 title: 'Product 20',
                 price: '1500',
-                category: 'men\'s clothing',
-                image: '/assets/images/f160.jpg'
+                category: 'kitchenware',
+                image: '/assets/images/kw19.jpg'
             }, 
             {
                 id: 21,
                 title: 'Product 21',
                 price: '1500',
-                category: 'men\'s clothing',
-                image: '/assets/images/f141.jpg'
+                category: 'kitchenware',
+                image: '/assets/images/kw20.jpg'
             }, 
             {
                 id: 22,
                 title: 'Product 22',
                 price: '1500',
-                category: 'men\'s clothing',
-                image: '/assets/images/f140.jpg'
+                category: 'kitchenware',
+                image: '/assets/images/kw21.jpg'
             }, 
             {
                 id: 23,
                 title: 'Product 23',
                 price: '1500',
-                category: 'men\'s clothing',
-                image: '/assets/images/f139.jpg'
+                category: 'kitchenware',
+                image: '/assets/images/kw22.jpg'
             }, 
             {
                 id: 24,
                 title: 'Product 24',
                 price: '1500',
-                category: 'men\'s clothing',
-                image: '/assets/images/f138.jpg'
+                category: 'kitchenware',
+                image: '/assets/images/kw23.jpg'
             }, 
             {
                 id: 25,
                 title: 'Product 25',
                 price: '1500',
-                category: 'women\'s clothing',
-                image: '/assets/images/f146.jpg'
+                category: 'kitchenware',
+                image: '/assets/images/kw24.jpg'
             }, 
             {
                 id: 26,
                 title: 'Product 26',
                 price: '1500',
-                category: 'women\'s clothing',
-                image: '/assets/images/f147.jpg'
+                category: 'kitchenware',
+                image: '/assets/images/kw25.jpg'
             }, 
             {
                 id: 27,
                 title: 'Product 27',
                 price: '1500',
-                category: 'women\'s clothing',
-                image: '/assets/images/f148.jpg'
+                category: 'kitchenware',
+                image: '/assets/images/kw26.jpg'
             }, 
             {
                 id: 28,
                 title: 'Product 28',
                 price: '1500',
-                category: 'women\'s clothing',
-                image: '/assets/images/f104.jpg'
+                category: 'kitchenware',
+                image: '/assets/images/kw27.jpg'
             }, 
             {
                 id: 29,
                 title: 'Product 29',
                 price: '1500',
-                category: 'women\'s clothing',
-                image: '/assets/images/f102.jpg'
+                category: 'kitchenware',
+                image: '/assets/images/kw28.jpg'
             }, 
             {
                 id: 30,
                 title: 'Product 30',
                 price: '1500',
-                category: 'women\'s clothing',
-                image: '/assets/images/f151.jpg'
+                category: 'kitchenware',
+                image: '/assets/images/kw29.jpg'
             }, 
             {
                 id: 31,
                 title: 'Product 31',
                 price: '1500',
-                category: 'women\'s clothing',
-                image: '/assets/images/f114.jpg'
+                category: 'kitchenware',
+                image: '/assets/images/kw30.jpg'
             }, 
             {
                 id: 32,
                 title: 'Product 32',
                 price: '1500',
-                category: 'women\'s clothing',
-                image: '/assets/images/f86.jpg'
+                category: 'kitchenware',
+                image: '/assets/images/kw31.jpg'
             },
             {
                 id: 33,
                 title: 'Product 33',
                 price: '1500',
-                category: 'women\'s clothing',
-                image: '/assets/images/f59.jpg'
+                category: 'kitchenware',
+                image: '/assets/images/kw32.jpg'
             }, 
             {
                 id: 34,
                 title: 'Product 34',
                 price: '1500',
-                category: 'women\'s clothing',
-                image: '/assets/images/f154.jpg'
+                category: 'kitchenware',
+                image: '/assets/images/kw33.jpg'
             },
             // Add more products as needed
         ];
@@ -278,11 +278,11 @@ const Products = () => {
             <>
                 <div className="buttons d-flex justify-content-center mb-5 pb-5">
                     <button className="btn btn-outline-dark me-2" onClick={() => setFilter(data)}>All</button>
-                    <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("men's clothing")}>Men's Clothing</button>
-                    <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("women's clothing")}>Women's Clothing</button>
-                    <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("kid's clothing")}>Kid's Clothing</button>
-                    <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("electronics")}>Electronics</button>
-                    <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("kitchenware")}>Kitchenware</button>
+                    <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("men's clothing")}>Men's clothing</button>
+                    <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("women's clothing")}>Women's clothing</button>
+                    <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("kid's clothing")}>Kid's clothing</button>
+                    <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("kitchenware")}>kitchenware</button>
+                    <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("electronics")}>electronics</button>
                 </div>
 
                 <div className="row">
