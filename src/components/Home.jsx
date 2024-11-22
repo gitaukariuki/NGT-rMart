@@ -1,5 +1,5 @@
 import React from "react";  
-import { Navbar, Nav } from 'react-bootstrap'; // Correct import  
+//import { Navbar, Nav } from 'react-bootstrap'; // Correct import  
 import Products from './Products';
 
 const Home = () => {  
@@ -10,7 +10,7 @@ const Home = () => {
                 <img src="/assets/chg.webp" className="card-img" height="250" alt="..." />  
                 <div className="card-img-overlay d-flexs flex-column justify-content-center">  
                   <div className="container">
-                  <h1 class="card-title display-3 fw-bolder mb-8">NEW SEASON ARRIVALS</h1>  
+                  <h1 className="card-title display-3 fw-bolder mb-8">NEW SEASON ARRIVALS</h1>  
                     <p className="card-text">  
                         CHECK OUT THE LATEST TRENDS.  
                     </p>  

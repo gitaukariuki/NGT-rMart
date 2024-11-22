@@ -1,7 +1,7 @@
 import React, { useState } from "react";  
 import { NavLink } from "react-router-dom";  
 import { useSelector } from "react-redux";  
-import CartButton from "./CartButton";
+//import CartButton from "./CartButton";
 
 const Navbar = () => {  
     const cartItems = useSelector((state) => state.cart.items); // Adjust this line to select cart items  
@@ -16,7 +16,7 @@ const Navbar = () => {
         <nav className="navbar navbar-expand-lg bg-white navbar-light py-3 shadow-sm">  
             <div className="container">  
                 <NavLink className="navbar-brand fw-bold fs-2" to="/">  
-                    NGT eMart  
+                    Sample Shop  
                 </NavLink>  
                 <button  
                     className={`navbar-toggler ${isMenuOpen ? '' : 'collapsed'}`}  

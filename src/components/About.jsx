@@ -4,7 +4,7 @@ const About = () => {
   return (
     <div className="about-us">
       <h2>About Us</h2>
-      <p>Welcome to NGT eMart! We are a dedicated team committed to providing the best online shopping experience.</p>
+      <p>Welcome to gitslab! We are a dedicated team committed to providing the best online shopping experience.</p>
     </div>
   );
 };
