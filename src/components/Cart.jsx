@@ -1,110 +1,141 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { increaseQuantity, decreaseQuantity, removeFromCart } from '../redux/reducer/cartSlice';
+import { useNavigate } from 'react-router-dom';
+import {
+    increaseQuantity,
+    decreaseQuantity,
+    removeFromCart,
+    clearCart,
+} from '../redux/reducer/cartSlice';
 import './Cart.css';
+import axios from 'axios';
 
 const Cart = () => {
     const dispatch = useDispatch();
-    const [showCheckout, setShowCheckout] = useState(false); // State to handle checkout modal
+    const navigate = useNavigate();
+    const [showCheckout, setShowCheckout] = useState(false);
+    const [isProcessing, setIsProcessing] = useState(false);
 
-    const cartItems = useSelector((state) => {
-        console.log("Full State:", state);  
-        console.log("Cart State:", state.cart);  
-        console.log("Cart Items", state.cart.items);
-        return state.cart.items || [];
-    });
+    const cartItems = useSelector((state) => state.cart.items || []);
+    const totalPrice = cartItems.reduce(
+        (total, product) => total + product.qty * product.price,
+        0
+    );
 
-    const handleButton = (productId, action) => {
-        if (action === "increase") {
+    const handleQuantityChange = (productId, action) => {
+        if (action === 'increase') {
             dispatch(increaseQuantity(productId));
-        } else if (action === "decrease") {
+        } else if (action === 'decrease') {
             dispatch(decreaseQuantity(productId));
         }
     };
 
-    const totalPrice = cartItems.reduce((total, product) => total + product.qty * product.price, 0);
+    const handleCheckout = () => setShowCheckout(true);
 
-    // Handle checkout process
-    const handleCheckout = () => {
-        setShowCheckout(true);
-    };
+    const confirmCheckout = async () => {
+        setIsProcessing(true);
+        try {
+            const response = await axios.post(
+                '/api/checkout',
+                { cartItems, totalPrice }
+            );
+            console.log('Checkout Response:', response.data);
 
-    const confirmCheckout = () => {
-        alert("Proceeding to checkout...");
-        setShowCheckout(false);
-        // Add further checkout actions like redirecting to a payment page or clearing the cart here
+            alert('Checkout successful! Redirecting...');
+            dispatch(clearCart());
+            setIsProcessing(false);
+            setShowCheckout(false);
+            navigate('/checkout-success'); // Redirect to checkout success page
+        } catch (error) {
+            console.error('Checkout Error:', error);
+            alert('An error occurred during checkout. Please try again.');
+            setIsProcessing(false);
+        }
     };
 
     return (
         <div className="cart-container">
             {cartItems.length === 0 ? (
-                <h2>Your cart feels lonely</h2>
+                <h2>Your cart is empty</h2>
             ) : (
                 <>
-                    <hr />
                     <h2>Your Cart</h2>
                     {cartItems.map((product) => (
-                        <div className="row" key={product.id}>
-                            <div className="col-md-4">
-                                <img src={product.image} alt={product.title} height="200px" width="180px" />
+                        <div className="cart-item" key={product.id}>
+                            <div className="item-image">
+                                <img
+                                    src={product.image}
+                                    alt={product.title}
+                                    height="200px"
+                                    width="180px"
+                                />
                             </div>
-                            <div className="col-md-4">
+                            <div className="item-details">
                                 <h3>{product.title}</h3>
-                                <p className="lead fw-bold">
-                                    {product.qty} X Ksh {product.price} = Ksh {product.qty * product.price}
+                                <p>
+                                    {product.qty} x Ksh {product.price} = Ksh{' '}
+                                    {product.qty * product.price}
                                 </p>
-                                <button
-                                    type="button"
-                                    className="btn btn-outline-dark"
-                                    onClick={() => handleButton(product.id, "decrease")}
-                                    aria-label={`Decrease quantity of ${product.title}`}
-                                >
-                                    <i className="fa fa-minus"></i>
-                                </button> &nbsp;
-                                <button
-                                    type="button"
-                                    className="btn btn-outline-dark"
-                                    onClick={() => handleButton(product.id, "increase")}
-                                    aria-label={`Increase quantity of ${product.title}`}
-                                >
-                                    <i className="fa fa-plus"></i>
-                                </button> &nbsp;
-                                <button
-                                    type="button"
-                                    className="btn btn-outline-danger"
-                                    onClick={() => dispatch(removeFromCart(product.id))}
-                                    aria-label={`Remove ${product.title} from cart`}
-                                >
-                                    Remove
-                                </button>
+                                <div className="item-actions">
+                                    <button
+                                        className="btn btn-outline-dark"
+                                        onClick={() => handleQuantityChange(product.id, 'decrease')}
+                                    >
+                                        <i className="fa fa-minus"></i>
+                                    </button>
+                                    <button
+                                        className="btn btn-outline-dark"
+                                        onClick={() => handleQuantityChange(product.id, 'increase')}
+                                    >
+                                        <i className="fa fa-plus"></i>
+                                    </button>
+                                    <button
+                                        className="btn btn-outline-danger"
+                                        onClick={() => dispatch(removeFromCart(product.id))}
+                                    >
+                                        Remove
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     ))}
-                    <hr />
                     <h3>Total: Ksh {totalPrice}</h3>
-
-                    {/* Checkout and Clear Cart Buttons */}
-                    <div className="text-end mt-3">
-                        <button className="btn btn-success me-2" onClick={handleCheckout}>
+                    <div className="cart-actions">
+                        <button
+                            className="btn btn-success"
+                            onClick={handleCheckout}
+                            disabled={isProcessing}
+                        >
                             Checkout
                         </button>
-                        <button className="btn btn-secondary" onClick={() => dispatch({ type: "cart/clear" })}>
+                        <button
+                            className="btn btn-secondary"
+                            onClick={() => dispatch(clearCart())}
+                            disabled={isProcessing}
+                        >
                             Clear Cart
                         </button>
                     </div>
                 </>
             )}
 
-            {/* Checkout Confirmation Modal */}
             {showCheckout && (
                 <div className="modal-overlay">
                     <div className="modal-content">
                         <h5>Confirm Checkout</h5>
                         <p>Total Amount: Ksh {totalPrice}</p>
-                        <button className="btn btn-primary" onClick={confirmCheckout}>
-                            Confirm
+                        <button
+                            className="btn btn-primary"
+                            onClick={confirmCheckout}
+                            disabled={isProcessing}
+                        >
+                            {isProcessing ? 'Processing...' : 'Confirm'}
                         </button>
-                        <button className="btn btn-danger" onClick={() => setShowCheckout(false)}>
+                        <button
+                            className="btn btn-danger"
+                            onClick={() => setShowCheckout(false)}
+                            disabled={isProcessing}
+                        >
                             Cancel
                         </button>
                     </div>

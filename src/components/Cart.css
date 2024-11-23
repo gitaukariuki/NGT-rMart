@@ -1,4 +1,134 @@
-/* Cart.css */
+/* General Cart Container */
+.cart-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+}
+
+.cart-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+}
+
+/* Cart Item Styles */
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.item-image img {
+    border-radius: 5px;
+    object-fit: cover;
+    max-height: 150px;
+    max-width: 150px;
+}
+
+.item-details {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.item-details h3 {
+    margin: 0 0 10px;
+    font-size: 20px;
+    color: #222;
+}
+
+.item-details p {
+    margin: 0 0 10px;
+    font-size: 16px;
+    color: #666;
+}
+
+.item-actions button {
+    margin-right: 10px;
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.item-actions .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-actions .btn-outline-dark {
+    background-color: #fff;
+    border: 1px solid #333;
+    color: #333;
+    transition: 0.3s;
+}
+
+.item-actions .btn-outline-dark:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.item-actions .btn-outline-danger {
+    background-color: #fff;
+    border: 1px solid #d9534f;
+    color: #d9534f;
+    transition: 0.3s;
+}
+
+.item-actions .btn-outline-danger:hover {
+    background-color: #d9534f;
+    color: #fff;
+}
+
+/* Total Price and Actions */
+.cart-actions {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.cart-actions .btn {
+    margin-left: 10px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cart-actions .btn-success {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    transition: 0.3s;
+}
+
+.cart-actions .btn-success:hover {
+    background-color: #218838;
+}
+
+.cart-actions .btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+    border: none;
+    transition: 0.3s;
+}
+
+.cart-actions .btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Empty Cart Message */
+.cart-container h2 {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 28px;
+    color: #555;
+}
 
 /* Modal Styles */
 .modal-overlay {
@@ -22,4 +152,46 @@
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
     max-width: 400px;
     width: 100%;
+}
+
+.modal-content h5 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #333;
+}
+
+.modal-content p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #555;
+}
+
+.modal-content .btn {
+    margin: 0 5px;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-content .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    transition: 0.3s;
+}
+
+.modal-content .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.modal-content .btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    transition: 0.3s;
+}
+
+.modal-content .btn-danger:hover {
+    background-color: #c82333;
 }
