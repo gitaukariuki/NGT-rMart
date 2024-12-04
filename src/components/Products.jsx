@@ -2,26 +2,56 @@ import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
 
+// Example of local products (replace with actual data or import from a JSON file)
+const localProducts = [
+  {
+    id: 1,
+    title: "Comfortable Sofa",
+    description: "A comfortable and stylish sofa for your living room.",
+    price: 250,
+    category: "home comforts",
+    image: "/assets/images/sofa.jpg"
+  },
+  {
+    id: 2,
+    title: "Modern Chair",
+    description: "A sleek and modern chair for your office.",
+    price: 120,
+    category: "home comforts",
+    image: "/assets/images/chair.jpg"
+  },
+  {
+    id: 3,
+    title: "Men's T-Shirt",
+    description: "Casual and comfortable t-shirt.",
+    price: 20,
+    category: "men's clothing",
+    image: "/assets/images/tshirt.jpg"
+  },
+  {
+    id: 4,
+    title: "Women's Dress",
+    description: "Elegant and stylish dress for any occasion.",
+    price: 45,
+    category: "women's clothing",
+    image: "/assets/images/dress.jpg"
+  },
+  // Add more products as needed
+];
+
 const Products = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(localProducts); // Use local products data
   const [loading, setLoading] = useState(false);
-  const [filter, setFilter] = useState([]);
+  const [filter, setFilter] = useState(localProducts);
 
-  useEffect(() => {
-    const getProducts = async () => {
-      setLoading(true);
-      const response = await fetch("https://fakestoreapi.com/products");
-      const products = await response.json();
-      setData(products);
-      setFilter(products);
-      setLoading(false);
-    };
-    getProducts();
-  }, []);
-
+  // Function to filter products based on category
   const filterProduct = (cat) => {
-    const updatedList = data.filter((x) => x.category === cat);
-    setFilter(updatedList);
+    if (cat === "all") {
+      setFilter(data);
+    } else {
+      const updatedList = data.filter((x) => x.category === cat);
+      setFilter(updatedList);
+    }
   };
 
   const Loading = () => (
@@ -37,12 +67,13 @@ const Products = () => {
     <>
       {/* Navigation buttons for categories */}
       <div className="buttons d-flex justify-content-center mb-5 pb-5">
-        <button className="btn btn-outline-dark me-2" onClick={() => setFilter(data)}>All</button>
+        <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("all")}>All</button>
         <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("men's clothing")}>Men's Clothing</button>
         <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("women's clothing")}>Women's Clothing</button>
         <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("jewelery")}>Jewellery</button>
         <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("kitchenware")}>Kitchenware</button>
         <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("electronics")}>Electronics</button>
+        <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("home comforts")}>Home Comforts</button>
       </div>
 
       {/* Product cards */}
@@ -56,7 +87,7 @@ const Products = () => {
                 alt={product.title}
                 height="250px"
                 onError={(e) => {
-                  e.target.src = `${process.env.PUBLIC_URL}/assets/images/e10.jpg`;
+                  e.target.src = `${process.env.PUBLIC_URL}/assets/images/e10.jpg`; // Fallback image
                 }}
               />
               <div className="card-body">
