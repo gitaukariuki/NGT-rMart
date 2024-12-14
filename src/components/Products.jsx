@@ -1,58 +1,53 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
-
-// Example of local products (replace with actual data or import from a JSON file)
-const localProducts = [
-  {
-    id: 1,
-    title: "Comfortable Sofa",
-    description: "A comfortable and stylish sofa for your living room.",
-    price: 250,
-    category: "home comforts",
-    image: "/assets/images/sofa.jpg"
-  },
-  {
-    id: 2,
-    title: "Modern Chair",
-    description: "A sleek and modern chair for your office.",
-    price: 120,
-    category: "home comforts",
-    image: "/assets/images/chair.jpg"
-  },
-  {
-    id: 3,
-    title: "Men's T-Shirt",
-    description: "Casual and comfortable t-shirt.",
-    price: 20,
-    category: "men's clothing",
-    image: "/assets/images/tshirt.jpg"
-  },
-  {
-    id: 4,
-    title: "Women's Dress",
-    description: "Elegant and stylish dress for any occasion.",
-    price: 45,
-    category: "women's clothing",
-    image: "/assets/images/dress.jpg"
-  },
-  // Add more products as needed
-];
+import 'react-loading-skeleton/dist/skeleton.css';
 
 const Products = () => {
-  const [data, setData] = useState(localProducts); // Use local products data
-  const [loading, setLoading] = useState(false);
-  const [filter, setFilter] = useState(localProducts);
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 8;
+  const [activeCategory, setActiveCategory] = useState("all");
 
-  // Function to filter products based on category
-  const filterProduct = (cat) => {
-    if (cat === "all") {
-      setFilter(data);
+  // Fetch products from the API
+  useEffect(() => {
+    const fetchProducts = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch('https://fakestoreapi.com/products');
+        const data = await response.json();
+        setProducts(data);
+        setFilteredProducts(data);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+        setLoading(false);
+      }
+    };
+    fetchProducts();
+  }, []);
+
+  // Filter products by category
+  const filterProduct = (category) => {
+    setActiveCategory(category);
+    setCurrentPage(1); // Reset to first page when filtering
+    if (category === "all") {
+      setFilteredProducts(products);
     } else {
-      const updatedList = data.filter((x) => x.category === cat);
-      setFilter(updatedList);
+      const filtered = products.filter((product) => product.category === category);
+      setFilteredProducts(filtered);
     }
   };
+
+  // Pagination logic
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = filteredProducts.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   const Loading = () => (
     <>
@@ -65,20 +60,18 @@ const Products = () => {
 
   const ShowProducts = () => (
     <>
-      {/* Navigation buttons for categories */}
+      {/* Category Navigation */}
       <div className="buttons d-flex justify-content-center mb-5 pb-5">
-        <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("all")}>All</button>
-        <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("men's clothing")}>Men's Clothing</button>
-        <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("women's clothing")}>Women's Clothing</button>
-        <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("jewelery")}>Jewellery</button>
-        <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("kitchenware")}>Kitchenware</button>
-        <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("electronics")}>Electronics</button>
-        <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("home comforts")}>Home Comforts</button>
+        <button className={`btn me-2 ${activeCategory === "all" ? "btn-dark" : "btn-outline-dark"}`} onClick={() => filterProduct("all")}>All</button>
+        <button className={`btn me-2 ${activeCategory === "men's clothing" ? "btn-dark" : "btn-outline-dark"}`} onClick={() => filterProduct("men's clothing")}>Men's Clothing</button>
+        <button className={`btn me-2 ${activeCategory === "women's clothing" ? "btn-dark" : "btn-outline-dark"}`} onClick={() => filterProduct("women's clothing")}>Women's Clothing</button>
+        <button className={`btn me-2 ${activeCategory === "jewelery" ? "btn-dark" : "btn-outline-dark"}`} onClick={() => filterProduct("jewelery")}>Jewellery</button>
+        <button className={`btn me-2 ${activeCategory === "electronics" ? "btn-dark" : "btn-outline-dark"}`} onClick={() => filterProduct("electronics")}>Electronics</button>
       </div>
 
-      {/* Product cards */}
+      {/* Product Cards */}
       <div className="row">
-        {filter.map((product) => (
+        {currentItems.map((product) => (
           <div className="col-md-3 mb-4" key={product.id}>
             <div className="card h-100 text-center p-4">
               <img
@@ -87,23 +80,33 @@ const Products = () => {
                 alt={product.title}
                 height="250px"
                 onError={(e) => {
-                  e.target.src = `${process.env.PUBLIC_URL}/assets/images/e10.jpg`; // Fallback image
+                  e.target.src = `${process.env.PUBLIC_URL}/assets/images/fallback.jpg`; // Fallback image
                 }}
               />
               <div className="card-body">
-                <h5 className="card-title mb-0">{product.title.substring(0, 12)}...</h5>
-                <p className="card-text mb-2">
-                  {product.description ? product.description.substring(0, 30) + "..." : "No description available"}
-                </p>
-                <p className="card-text lead fw-bold">Ksh {product.price}</p>
-                <NavLink exact to={`/products/${product.id}`} className="btn btn-outline-dark">Buy Now</NavLink>
+                <h5 className="card-title mb-0">{truncate(product.title, 20)}</h5>
+                <p className="card-text lead fw-bold">${product.price}</p>
+                <NavLink to={`/products/${product.id}`} className="btn btn-outline-dark">Buy Now</NavLink>
               </div>
             </div>
           </div>
         ))}
       </div>
+
+      {/* Pagination */}
+      <nav>
+        <ul className="pagination justify-content-center">
+          {[...Array(totalPages).keys()].map((number) => (
+            <li key={number + 1} className={`page-item ${currentPage === number + 1 ? "active" : ""}`}>
+              <button className="page-link" onClick={() => paginate(number + 1)}>{number + 1}</button>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </>
   );
+
+  const truncate = (str, length) => (str.length > length ? str.substring(0, length) + "..." : str);
 
   return (
     <div>
